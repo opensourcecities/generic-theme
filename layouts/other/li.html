@@ -1,0 +1,11 @@
+<li>
+    &#8226; {{ .Params.name }}
+
+    {{ with .Params.description }}
+        - {{ . | markdownify }}
+    {{ end }}
+
+    {{ with .Params.website }}
+        [<a href="{{ . }}">website</a>]
+    {{ end }}
+</li>

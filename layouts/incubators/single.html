@@ -1,0 +1,16 @@
+{{ define "title" }}
+    {{ .Params.name }} · {{ .Site.Title }}
+{{ end }}
+{{ define "hero"}}
+    {{ partial "header/hero-narrow.html" . }}
+{{ end }}
+{{ define "content" }}
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                {{ .Render "summary" }}
+            </div>
+        </div>
+    </section>
+    {{ partial "main/contribution.html" . }}
+{{ end }}

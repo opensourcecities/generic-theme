@@ -1,0 +1,15 @@
+{{ define "hero"}}
+    {{ partial "header/hero-wide.html" . }}
+{{ end }}
+{{ define "content" }}
+    {{ partial "main/background.html" . }}
+
+    {{ partial "records/thumbnail.html" (dict "global" $ "type" "organizations" "background" "bg-dark") }}
+    {{ partial "records/list.html" (dict "global" $ "type" "projects" "background" "bg-secondary") }}
+    {{ partial "records/thumbnail.html" (dict "global" $ "type" "users" "background" "bg-dark") }}
+    {{ partial "records/thumbnail.html" (dict "global" $ "type" "incubators" "background" "bg-secondary") }}
+    {{ partial "records/list.html" (dict "global" $ "type" "other" "background" "bg-dark") }}
+
+    {{ partial "main/events.html" . }}
+    {{ partial "main/contribution.html" . }}
+{{ end }}
