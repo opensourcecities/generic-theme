@@ -1,0 +1,20 @@
+<div class="record-summary text-center">
+    <h2>{{ .Params.name }}</h2>
+    <h4>@{{ .Params.github }}</h4>
+    <hr class="primary">
+    <img src="https://github.com/{{ range first 1 (split .Params.github "/") }}{{ . }}{{ end }}.png" class="img-responsive img-centered" alt="" />
+    <p>
+        {{ with .Params.bio }}
+            {{ . | markdownify }}<br />
+        {{ end }}
+        {{ with .Params.github }}
+            [<a href="https://github.com/{{ . }}">github</a>]
+        {{ end }}
+        {{ with .Params.twitter }}
+            [<a href="https://twitter.com/{{ . }}">twitter</a>]
+        {{ end }}
+        {{ with .Params.website }}
+            [<a href="{{ . }}">website</a>]
+        {{ end }}
+    </p>
+</div>

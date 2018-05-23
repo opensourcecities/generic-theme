@@ -1,0 +1,10 @@
+{{ define "title" }}
+    {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "hero"}}
+    {{ partial "header/hero-narrow.html" . }}
+{{ end }}
+{{ define "content" }}
+    {{ partial "records/list.html" (dict "global" $ "type" "projects" "background" "bg-secondary") }}
+    {{ partial "main/contribution.html" . }}
+{{ end }}

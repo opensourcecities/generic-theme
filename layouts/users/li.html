@@ -1,0 +1,36 @@
+<li class="record-item text-center">
+    <a href="{{ .Permalink }}" class="record-link" data-target="#user-{{ replace .Params.github "/" "-" }}">
+        <div class="record-info">
+            <img src='https://github.com/{{ range first 1 (split .Params.github "/") }}{{ . }}{{ end }}.png'></img>
+            <h3>@{{ .Params.github }}</h3>
+            <p class="text-muted">
+                {{ with .Params.bio }}
+                    {{ . | truncate 40 }}
+                {{ else }}
+                    &nbsp;
+                {{ end }}
+            </p>
+        </div>
+    </a>
+    <div class="portfolio-modal modal fade" id="user-{{ replace .Params.github "/" "-" }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body text-center">
+                            {{ .Render "summary" }}
+                            <a href="{{ .Permalink }}" class="btn btn-primary"><i class="fa fa-user"></i> Profile</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
