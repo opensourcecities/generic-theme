@@ -23,15 +23,13 @@ buildjs:
 demo: build
 	mkdir -p exampleSite/themes/osc-theme
 	mkdir -p exampleSite/themes/osc-theme/archetypes
-	mkdir -p exampleSite/themes/osc-theme/images
 	mkdir -p exampleSite/themes/osc-theme/layouts
 	mkdir -p exampleSite/themes/osc-theme/static
 	cp -r $(current_dir)/archetypes/* exampleSite/themes/osc-theme/archetypes/
-	cp -r $(current_dir)/images/* exampleSite/themes/osc-theme/images
 	cp -r $(current_dir)/layouts/* exampleSite/themes/osc-theme/layouts
 	cp -r $(current_dir)/static/* exampleSite/themes/osc-theme/static
 	cp -r $(current_dir)/theme.toml exampleSite/themes/osc-theme/theme.toml
-	cd examplesite && hugo serve -D
+	cd exampleSite && hugo serve -D
 
 clean:
 	rm -f $(CSS_DIR)/$(CSS_FILE)
