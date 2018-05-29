@@ -4,7 +4,7 @@
             <img src='https://github.com/{{ range first 1 (split .Params.github "/") }}{{ . }}{{ end }}.png'></img>
             <h3>@{{ .Params.github }}</h3>
             <p class="text-muted">
-                {{ with .Params.bio }}
+                {{ with .Params.description }}
                     {{ . | truncate 40 }}
                 {{ else }}
                     &nbsp;
