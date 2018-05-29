@@ -1,8 +1,8 @@
 ---
-name: ""
+name: "{{ .File.BaseFileName | humanize | title }}"
 github: ""
 twitter: ""
-bio: ""
+description: ""
 website: ""
 date: {{ .Date }}
 ---
