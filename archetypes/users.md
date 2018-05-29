@@ -1,9 +1,8 @@
-+++
-name = ""
-github = ""
-twitter = ""
-bio = ""
-website = ""
-date = {{ .Date }}
-+++
-
+---
+name: ""
+github: ""
+twitter: ""
+bio: ""
+website: ""
+date: {{ .Date }}
+---
