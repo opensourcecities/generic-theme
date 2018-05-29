@@ -20,35 +20,11 @@
                         <hr class="primary">
                     {{ end }}
 
+                    {{ .Render "summary" }}
+
                     <div class="event clearfix">
-                        <div class="col-sm-8">
-                            <h2><a href="{{ .Params.Link }}">{{ .Title }}</a></h2>
-                            <p>{{ .Content | markdownify }}</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <ul class="event-info">
-                                <li class="clearfix">
-                                    <div class="info-icon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                    <div class="info-data">
-                                        <span>{{ .Params.eventdate }}</span><br />
-                                        <span>{{ .Params.eventtime }}</span>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="info-icon">
-                                        <i class="fa fa-map-marker"></i>
-                                    </div>
-                                    <div class="info-data">
-                                        <a href="https://www.google.com/maps/search/?api=1&query={{ .Params.location }}" class="info-venue-map" target="_blank noreferrer noopener">
-                                            <span>{{ .Params.venue }}</span><br />
-                                            <span>{{ .Params.location }}</span><br />
-                                            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ .Params.location }}&zoom=17&scale=27&size=480x300&markers=color:red%7Csize:large%7C{{ .Params.coordinate }}&sensor=false&key=AIzaSyAKrP7bwrgcb8q2kOHJrmqxyMxm6b8G4Rs" alt="Location image of event venue">
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="col-sm-12">
+                            [<a href="{{ .URL }}">Permalink</a>]
                         </div>
                     </div>
                 {{ end }}

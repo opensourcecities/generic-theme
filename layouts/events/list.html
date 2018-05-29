@@ -1,0 +1,10 @@
+{{ define "title" }}
+    {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "hero"}}
+    {{ partial "header/hero-narrow.html" . }}
+{{ end }}
+{{ define "content" }}
+    {{ partial "main/events.html" . }}
+    {{ partial "main/contribution.html" . }}
+{{ end }}
