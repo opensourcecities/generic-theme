@@ -6,33 +6,32 @@ CSS_FILE = style.min.css
 CSS_TMP_FILE = tmp.css
 current_dir = $(shell pwd)
 
-.PHONY: clean build buildcss buildjs
+.PHONY: clean cleancss cleanjs build buildcss buildjs demo
 
-build: clean buildcss buildjs
+build: buildcss buildjs
 
-buildcss:
+buildcss: cleancss
 	for f in $(LESS_FILES); do cat $(LESS_DIR)/$$f >> $(LESS_DIR)/$(LESS_TMP_FILE); done
 	lessc $(LESS_DIR)/$(LESS_TMP_FILE) > $(CSS_DIR)/$(CSS_TMP_FILE)
 	uglifycss $(CSS_DIR)/$(CSS_TMP_FILE) > $(CSS_DIR)/$(CSS_FILE)
 	rm -f $(CSS_DIR)/$(CSS_TMP_FILE)
 	rm -f $(LESS_DIR)/$(LESS_TMP_FILE)
 
-buildjs:
+buildjs: cleanjs
 	echo TODO
 
 demo: build
-	mkdir -p exampleSite/themes/osc-theme
-	mkdir -p exampleSite/themes/osc-theme/archetypes
-	mkdir -p exampleSite/themes/osc-theme/layouts
-	mkdir -p exampleSite/themes/osc-theme/static
-	cp -r $(current_dir)/archetypes/* exampleSite/themes/osc-theme/archetypes/
-	cp -r $(current_dir)/layouts/* exampleSite/themes/osc-theme/layouts
-	cp -r $(current_dir)/static/* exampleSite/themes/osc-theme/static
-	cp -r $(current_dir)/theme.toml exampleSite/themes/osc-theme/theme.toml
-	cd exampleSite && hugo serve -D
+	mkdir -p demo/themes/osc-theme
+	rsync -av exampleSite/* demo
+	rsync -av --exclude='demo' --exclude='exampleSite' --exclude='.git' . demo/themes/osc-theme
+	cd demo && hugo serve -D
 
-clean:
-	rm -f $(CSS_DIR)/$(CSS_FILE)
+clean: cleancss cleanjs
+	rm -rf demo
+
+cleancss:
 	rm -f $(CSS_DIR)/$(CSS_TMP_FILE)
 	rm -f $(LESS_DIR)/$(LESS_TMP_FILE)
-	rm -rf exampleSite/themes/osc-theme
+
+cleanjs:
+	echo TODO
