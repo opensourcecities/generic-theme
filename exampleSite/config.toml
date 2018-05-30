@@ -94,7 +94,7 @@ theme = "osc-theme"
         [[params.footer.contact]]
             icon = "slack"
             text = "Join Us!"
-            link = "https://opensourcemtl.slack.com/shared_invite/MTcwNDcwMDk1NjgxLTE0OTI1NDk3NzktOTM0YzRhODExYQ"
+            link = "https://CITY.slack.com/shared_invite/SLACK_INVITE_URL"
 
         # Other Cities
         [[params.footer.cities]]
