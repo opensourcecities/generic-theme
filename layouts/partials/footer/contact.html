@@ -17,8 +17,10 @@
                 <h2 class="section-heading">Other Cities</h2>
                 <hr class="primary">
                 <p class="clearfix">
-                    {{ range sort .Site.Params.footer.cities "text" }}
-                        <a class="display-block" href="{{ .Site.Params.fqdn }}{{ .link }}" target="_blank">{{ .text }}</a>
+                    {{ range sort .Site.Data.cities "text" }}
+                        {{ if not ( hasPrefix $.URL .link ) }}
+                            <a class="display-block" href="{{ .Site.Params.fqdn }}{{ .link }}" target="_blank">{{ .text }}</a>
+                        {{ end }}
                     {{ end }}
                 </p>
             </div>
