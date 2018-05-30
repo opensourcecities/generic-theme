@@ -11,6 +11,11 @@
         <div class="row">
             <div class="col-lg-12">
                 {{ .Content }}
+                <ul>
+                    {{ range .Paginator.Pages }}
+                        <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
             </div>
         </div>
     </div>

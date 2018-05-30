@@ -1,1 +1,9 @@
-General list
+{{ define "title" }}
+    {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "hero"}}
+    {{ partial "header/hero-narrow.html" . }}
+{{ end }}
+{{ define "content" }}
+    {{ partial "list.html" . }}
+{{ end }}
