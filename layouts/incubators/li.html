@@ -1,10 +1,19 @@
 <li class="record-item text-center">
     <a href="{{ .Permalink }}" class="record-link" data-target="#incubators-{{ replace .Params.github "/" "-" }}">
         <div class="record-info">
-            <img src='https://github.com/{{ range first 1 (split .Params.github "/") }}{{ . }}{{ end }}.png'></img>
+            {{ with .Params.github }}
+                <img src='https://github.com/{{ range first 1 (split . "/") }}{{ . }}{{ end }}.png'></img>
+            {{ else }}
+                <img src='{{ "img/school.png" | absURL }}'></img>
+            {{ end }}
             <h3 title="{{ .Params.name }}">{{ .Params.name | truncate 15 }}</h3>
             <p class="text-muted">
-                @{{ .Params.github }}<br />
+                {{ with .Params.github }}
+                    @{{ . }}
+                {{ else }}
+                    (no github)
+                {{ end }}
+                <br />
                 {{ with .Params.description }}
                     {{ . | truncate 40 }}
                 {{ else }}

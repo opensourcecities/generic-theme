@@ -1,8 +1,18 @@
 <div class="record-summary text-center">
     <h2>{{ .Params.name }}</h2>
-    <h4>@{{ .Params.github }}</h4>
+    <h4>
+        {{ with .Params.github }}
+            @{{ . }}
+        {{ else }}
+            (no github)
+        {{ end }}
+    </h4>
     <hr class="primary">
-    <img src="https://github.com/{{ range first 1 (split .Params.github "/") }}{{ . }}{{ end }}.png" class="img-responsive img-centered" alt="" />
+    {{ with .Params.github }}
+        <img src="https://github.com/{{ range first 1 (split . "/") }}{{ . }}{{ end }}.png" class="img-responsive img-centered" alt="" />
+    {{ else }}
+        <img src='{{ "img/school.png" | absURL }}' class="img-responsive img-centered" alt=""></img>
+    {{ end }}
     <p>
         {{ with .Params.description }}
             {{ . | markdownify }}<br />
