@@ -13,12 +13,29 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 no-padding">
-                {{ if .global.Paginator.Pages }}
+                {{ $records := where .global.Data.Pages "Section" .type }}
+                {{ if gt (len $records ) 0 }}
                     <ul class="record-thumbnails">
-                        {{ range where .global.Data.Pages "Section" .type }}
-                            {{ .Render "li" }}
+                        {{ if eq .level "root" }}
+                            {{ range first 15 ( $records ) }}
+                                {{ .Render "li" }}
+                            {{ end }}
+                        {{ else }}
+                            {{ $paginator := .global.Paginate ($records) 25 }}
+                            {{ range $paginator.Pages }}
+                                {{ .Render "li" }}
+                            {{ end }}
                         {{ end }}
                     </ul>
+                    {{ if eq .level "root" }}
+                        <div class="text-center">
+                            <a href="{{ $context.URL }}" class="btn btn-primary normal-case">view all <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    {{ else }}
+                        <div class="text-center">
+                            {{ template "_internal/pagination.html" .global }}
+                        </div>
+                    {{ end }}
                 {{ else }}
                     <p class="text-center">No records found.</p>
                 {{ end }}

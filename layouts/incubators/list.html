@@ -5,6 +5,6 @@
     {{ partial "header/hero-narrow.html" . }}
 {{ end }}
 {{ define "content" }}
-    {{ partial "records/thumbnail.html" (dict "global" $ "type" "incubators" "background" "bg-secondary") }}
+    {{ partial "records/thumbnail.html" (dict "global" $ "type" "incubators" "level" "inner" "background" "bg-secondary") }}
     {{ partial "main/contribution.html" . }}
 {{ end }}

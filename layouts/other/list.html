@@ -5,6 +5,6 @@
     {{ partial "header/hero-narrow.html" . }}
 {{ end }}
 {{ define "content" }}
-    {{ partial "records/list.html" (dict "global" $ "type" "other" "background" "bg-secondary") }}
+    {{ partial "records/list.html" (dict "global" $ "type" "other" "level" "inner" "background" "bg-secondary") }}
     {{ partial "main/contribution.html" . }}
 {{ end }}
