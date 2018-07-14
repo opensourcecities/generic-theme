@@ -1,0 +1,41 @@
+[{
+  "text": "Home",
+  "link": "",
+  "anchor": "page-top"
+}, {
+  "text": "Background",
+  "link": "#background",
+  "anchor": "background"
+}, {
+  "text": "Organizations",
+  "link": "organizations",
+  "anchor": "organizations"
+}, {
+  "text": "Projects",
+  "link": "projects",
+  "anchor": "projects"
+}, {
+  "text": "Users",
+  "link": "users",
+  "anchor": "users"
+}, {
+  "text": "Incubators",
+  "link": "incubators",
+  "anchor": "incubators"
+}, {
+  "text": "Other",
+  "link": "other",
+  "anchor": "other"
+}, {
+  "text": "Events",
+  "link": "events",
+  "anchor": "events"
+}, {
+  "text": "Contribution",
+  "link": "#contribution",
+  "anchor": "contribution"
+}, {
+  "text": "Contact",
+  "link": "#contact",
+  "anchor": "contact"
+}]
