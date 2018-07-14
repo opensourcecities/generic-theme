@@ -13,7 +13,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                {{ range .Site.Params.navigation.link }}
+                {{ range .Site.Data.navigations }}
                     <li><a class="page-scroll" href="{{ $.Site.BaseURL }}{{ .link }}" data-target="{{ .anchor }}">{{ .text }}</a></li>
                 {{ end }}
             </ul>
