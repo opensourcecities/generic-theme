@@ -11,6 +11,10 @@
   "link": "organizations",
   "anchor": "organizations"
 }, {
+  "text": "Companies",
+  "link": "Companies",
+  "anchor": "companies"
+}, {
   "text": "Projects",
   "link": "projects",
   "anchor": "projects"
