@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 no-padding">
-                {{ $records := where .global.Data.Pages "Section" .type }}
+                {{ $records := (where .global.Data.Pages "Section" .type).ByParam "name" }}
                 {{ if gt (len $records ) 0 }}
                     <ul class="record-thumbnails">
                         {{ if eq .level "root" }}
